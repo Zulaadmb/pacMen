@@ -2,24 +2,17 @@
 <html lang="en">
 <head>
     <title>pacMen</title>
+    <link rel="stylesheet" href="./pacMen.css">
     <script src="./pacMan.js"></script>
 </head>
-<body>
+<body style="text-align: center;">
     <h1>Batzul's PacMen Project</h1>
-    <!-- <div class="navbar">
-        <div class="navbar-centered">
-            <a href="">Home</a>
-            <a href="https://zulaadmb.github.io/pacMen/">PacMen</a>
-            <a href="https://zulaadmb.github.io/eyes/">Eye movenent</a>
-            <a class="active" href="#">Bus stops</a>
-        </div>
-    </div> -->
-    <br>
+    <hr style="width:500px" class="underline">
     <div id="game">
-        <button onclick="makeOne()" width='300' height='50'>Add PacMan</button>
-        <button onclick="start()" width='200' height='30'>Start Game</button>
-        <button onclick="stop()" width='200' height='30'>Stop Game</button>
-        <button onclick="remove()" width='200' height='30'>Remove PacMan</button>
+        <button onclick="makeOne()" width='200' height='30' style="margin: 20px">Add PacMan</button>
+        <button onclick="start()" width='200' height='30' style="margin: 20px">Start Game</button>
+        <button onclick="stop()" width='200' height='30' style="margin: 20px">Stop Game</button>
+        <button onclick="remove()" width='200' height='30' style="margin: 20px">Remove PacMan</button>
     </div>
 </body>
 </html>
