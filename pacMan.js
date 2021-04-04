@@ -1,26 +1,31 @@
-let pos = 0;
 let updateInterval = null;
-let mouthInterval = null;
 const pacArray = [
   ['./static/images/PacMan1.png', './static/images/PacMan2.png'],
   ['./static/images/PacMan3.png', './static/images/PacMan4.png'],
 ];
-let direction = 0;
 const pacMen = []; // This array holds all the pacmen
 
 // This function returns an object with random values
-function setToRandom(scale) {
+function setToRandom(scale, mode) {
+  let x = Math.random() * scale;
+  let y = Math.random() * scale;
+  if (mode === 'p') {
+    while (y<150) {
+      console.log(y);
+      y = Math.random() * scale;
+    }
+  }
   return {
-    x: Math.random() * scale,
-    y: Math.random() * scale
+    x: x,
+    y: y
   };
 }
 
 // Factory to make a PacMan at a random position with random velocity
 function makePac(id) {
   // returns an object with random values scaled {x: 33, y: 21}
-  let velocity = setToRandom(30); // {x:?, y:?}
-  let position = setToRandom(200);
+  let velocity = setToRandom(30, 'v'); // {x:?, y:?}
+  let position = setToRandom(400, 'p');
 
   // Add image to div id = game
   let game = document.getElementById('game');
@@ -65,12 +70,16 @@ function update() {
   }); 
 }
 function start() {
+    if (updateInterval) {
+      return
+    }
     updateInterval = setInterval(update, 30);
     mouthInterval = setInterval(mouthControl, 250);
 }
 
 function stop() {
     clearInterval(updateInterval);
+    updateInterval = null;
 }
 function remove() {
     if (pacMen.length == 0) {
